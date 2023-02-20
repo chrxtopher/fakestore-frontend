@@ -1,6 +1,15 @@
 .login-form {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
 }
 
 .custom-field input {
@@ -16,12 +25,14 @@
   outline: none;
   font-size: 1rem;
   border: 1px solid rgb(100, 70, 255, 1);
+  color: rgb(100, 70, 255, 1);
 }
 
 .custom-field {
   position: relative;
   font-size: 1rem;
   padding-top: 20px;
+  margin-top: 0.5rem;
 }
 
 .custom-field .placeholder {
@@ -31,7 +42,8 @@
   transform: translateY(-50%);
   color: rgb(100, 70, 255, .6);
   pointer-events: none;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+  font-size: 1rem;
 }
 
 .custom-field input:valid + .placeholder,

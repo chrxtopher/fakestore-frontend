@@ -61,12 +61,10 @@ function LoginForm() {
         />
         <span className="placeholder">Password</span>
       </label>
-      <div className="login-buttons">
-        <SubmitButton title="Log In" />
-        <p>
-          Don't have an account? <a href="/signup">Sign Up</a>
-        </p>
-      </div>
+      <SubmitButton title="Log In" />
+      <p>
+        Don't have an account? <a href="/signup">Sign Up</a>
+      </p>
       {error.length > 0 && (
         <div className="error-message">
           <ErrorCard message={error} />
