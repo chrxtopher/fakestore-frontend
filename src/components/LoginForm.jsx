@@ -1,4 +1,5 @@
 import React from "react";
+import NavButton from "./NavButton";
 import SubmitButton from "./SubmitButton";
 
 function LoginForm() {
@@ -18,7 +19,8 @@ function LoginForm() {
         <input type="text" id="password" />
       </label>
       <div className="form-buttons">
-        <SubmitButton title="Submit" />
+        <SubmitButton title="Log In" />
+        <NavButton url="/signup" title="Sign Up" />
       </div>
     </form>
   );
