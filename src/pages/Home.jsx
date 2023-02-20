@@ -7,7 +7,6 @@ function Home() {
   const [activeUser, setActiveUser] = useState(
     localStorage.getItem("activeUser")
   );
-  console.log(loggedIn);
 
   const handleLogOut = () => {
     localStorage.setItem("loggedIn", false);
@@ -16,9 +15,9 @@ function Home() {
     setActiveUser(null);
   };
 
-  if (loggedIn === "true" && activeUser && activeUser != "") {
+  if (loggedIn === "true" && activeUser && activeUser.length > 0) {
     return (
-      <div className="continue">
+      <div className="continue-prompt">
         <p>{`Continue as ${activeUser}?`}</p>
         <div className="continue-buttons">
           <NavButton url={`/dashboard/${activeUser}`} title="Continue" />
@@ -30,6 +29,7 @@ function Home() {
     );
   } else {
     localStorage.setItem("loggedIn", false);
+    localStorage.removeItem("activeUser");
     return (
       <div className="home-page">
         <div className="login">
