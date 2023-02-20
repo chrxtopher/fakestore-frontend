@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import NavButton from "./NavButton";
 import SubmitButton from "./SubmitButton";
 import ErrorCard from "./ErrorCard";
+import "../styles/loginForm.css";
 
 function LoginForm() {
   const navigate = useNavigate();
@@ -43,22 +43,29 @@ function LoginForm() {
 
   return (
     <form className="login-form" onSubmit={onSubmit}>
-      <label htmlFor="username">
-        <p>Username</p>
+      <label htmlFor="username" className="custom-field">
         <input
           type="text"
-          id="fakeStoreUsername"
           value={username}
+          required
           onChange={handleUsernameChange}
         />
+        <span className="placeholder">Username</span>
       </label>
-      <label htmlFor="password">
-        <p>Password</p>
-        <input type="text" value={password} onChange={handlePasswordChange} />
+      <label htmlFor="password" className="custom-field">
+        <input
+          type="text"
+          value={password}
+          required
+          onChange={handlePasswordChange}
+        />
+        <span className="placeholder">Password</span>
       </label>
-      <div className="form-buttons">
+      <div className="login-buttons">
         <SubmitButton title="Log In" />
-        <NavButton url="/signup" title="Sign Up" />
+        <p>
+          Don't have an account? <a href="/signup">Sign Up</a>
+        </p>
       </div>
       {error.length > 0 && (
         <div className="error-message">
