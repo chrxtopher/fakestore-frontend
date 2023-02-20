@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import NavButton from "./NavButton";
 import SubmitButton from "./SubmitButton";
 
 function LoginForm() {
+  const navigate = useNavigate();
   const url = process.env.REACT_APP_DATABASE_URL || "http://localhost:4050";
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -13,13 +16,16 @@ function LoginForm() {
     try {
       const res = await axios.get(`${url}/users/login/${username}`);
       const creds = res.data.credentials;
-      if (creds.password != password) {
-        console.log("Incorrect password.");
+      if (creds && creds.password === password) {
+        localStorage.setItem("loggedIn", true);
+        localStorage.setItem("activeUser", creds.username);
+        navigate(`/dashboard/${creds.username}`);
       } else {
-        console.log("Logged In");
+        localStorage.setItem("loggedIn", false);
+        localStorage.removeItem("activeUser");
       }
     } catch (err) {
-      console.log(err.response.data.error);
+      console.log(err);
     }
   };
 
