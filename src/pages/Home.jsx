@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import LoginForm from "../components/LoginForm";
 import NavButton from "../components/NavButton";
+import "../styles/homePage.css";
 
 function Home() {
   const [loggedIn, setLoggedIn] = useState(localStorage.getItem("loggedIn"));
