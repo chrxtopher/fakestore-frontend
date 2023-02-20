@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import NavButton from "./NavButton";
 import SubmitButton from "./SubmitButton";
+import ErrorCard from "./ErrorCard";
 
 function LoginForm() {
   const navigate = useNavigate();
@@ -10,9 +11,11 @@ function LoginForm() {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    setError("");
     try {
       const res = await axios.get(`${url}/users/login/${username}`);
       const creds = res.data.credentials;
@@ -23,9 +26,10 @@ function LoginForm() {
       } else {
         localStorage.setItem("loggedIn", false);
         localStorage.removeItem("activeUser");
+        setError("Incorrect password");
       }
     } catch (err) {
-      console.log(err);
+      setError(err.response.data.error);
     }
   };
 
@@ -56,6 +60,11 @@ function LoginForm() {
         <SubmitButton title="Log In" />
         <NavButton url="/signup" title="Sign Up" />
       </div>
+      {error.length > 0 && (
+        <div className="error-message">
+          <ErrorCard message={error} />
+        </div>
+      )}
     </form>
   );
 }
