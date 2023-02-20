@@ -1,0 +1,12 @@
+.error-card {
+  position: absolute;
+  border: 1px solid rgb(255, 0, 0, 1);
+  border-radius: 3px;
+  background: rgb(255, 0, 0, 0.1);
+  color: rgb(255, 0, 0, 1);
+  width: 200px;
+  text-align: center;
+  font-size: 1rem;
+  transform: translateX(-50%);
+  padding: 0px 12px 0px 12px;
+}
