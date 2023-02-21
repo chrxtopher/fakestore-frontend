@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import LoginForm from "../components/LoginForm";
 import NavButton from "../components/NavButton";
+import LogOutButton from "../components/LogOutButton";
 import "../styles/homePage.css";
 
 function Home() {
@@ -22,9 +23,7 @@ function Home() {
         <p>{`Continue as ${activeUser}?`}</p>
         <div className="continue-buttons">
           <NavButton url={`/dashboard/${activeUser}`} title="Continue" />
-          <button type="button" onClick={handleLogOut}>
-            Log Out
-          </button>
+          <LogOutButton clickHandler={handleLogOut} />
         </div>
       </div>
     );
