@@ -33,9 +33,7 @@ function Home() {
     localStorage.removeItem("activeUser");
     return (
       <div className="home-page">
-        <div className="login">
-          <LoginForm />
-        </div>
+        <LoginForm />
       </div>
     );
   }

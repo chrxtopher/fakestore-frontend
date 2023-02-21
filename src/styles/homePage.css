@@ -6,17 +6,3 @@
   align-items: center;
   justify-content: center;
 }
-
-p {
-  font-size: 0.9rem;
-}
-
-a {
-  text-decoration: none;
-  color: rgb(100, 70, 255, 0.7);
-  transition: all 0.2s ease;
-}
-
-a:hover {
-  color: rgb(100, 70, 255, 1);
-}
