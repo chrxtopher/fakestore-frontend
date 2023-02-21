@@ -1,3 +1,8 @@
+header {
+  position: sticky;
+  top: 0;
+}
+
 .nav-bar {
   height: 50px;
   padding: 0.5rem 1rem;
@@ -20,6 +25,7 @@
   border-radius: 50px;
   background: rgb(100, 70, 255, 0.2);
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .icon-button:hover {
@@ -29,4 +35,10 @@
 .icon-button svg {
   width: 45px;
   height: 45px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
