@@ -13,7 +13,7 @@ function LoginForm() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const onSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     try {
@@ -42,7 +42,7 @@ function LoginForm() {
   };
 
   return (
-    <form className="login-form" onSubmit={onSubmit}>
+    <form className="login-form" onSubmit={handleSubmit}>
       <label htmlFor="username" className="custom-field">
         <input
           type="text"
