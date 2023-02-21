@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import LogOutButton from "../components/LogOutButton";
 import axios from "axios";
+import Header from "../components/Header";
 
 const Dashboard = () => {
   const url = process.env.REACT_APP_DATABASE_URL || "http://localhost:4050";
@@ -22,15 +23,11 @@ const Dashboard = () => {
     navigate("/");
   };
 
-  const testButton = () => {
-    console.log(user);
-  };
-
   return (
-    <div>
-      <button type="button" onClick={testButton}>
-        Test
-      </button>
+    <div className="dashboard">
+      <header>
+        <Header />
+      </header>
       <p>Welcome {username}</p>
       <LogOutButton clickHandler={logOutClick} />
     </div>
