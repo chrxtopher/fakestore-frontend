@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import SubmitButton from "./SubmitButton";
 import ErrorCard from "./ErrorCard";
-import "../styles/loginForm.css";
+import "../styles/form.css";
 
 function LoginForm() {
   const navigate = useNavigate();
