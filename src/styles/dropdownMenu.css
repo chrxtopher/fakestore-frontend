@@ -1,0 +1,14 @@
+.profile-dropdown {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 60px;
+  width: 200px;
+  padding: 0.8rem;
+  border-radius: 3px;
+  transform: translateX(-40%) translateY(8%);
+  background: rgb(100, 70, 255, 0.2);
+  overflow: hidden;
+}
