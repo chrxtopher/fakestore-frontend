@@ -1,21 +1,21 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import SubmitButton from "./SubmitButton";
 import ErrorCard from "./ErrorCard";
+import axios from "axios";
 import "../styles/form.css";
 
 const SignUpForm = () => {
+  const url = process.env.REACT_APP_DATABASE_URL || "http://localhost:4050";
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [password2, setPassword2] = useState("");
   const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
   const [error, setError] = useState("");
 
   const handleFirstNameChange = (e) => {
     setFirstName(e.target.value);
-  };
-
-  const handleLastNameChange = (e) => {
-    setLastName(e.target.value);
   };
 
   const handleUsernameChange = (e) => {
@@ -26,8 +26,37 @@ const SignUpForm = () => {
     setPassword(e.target.value);
   };
 
+  const handlePassword2Change = (e) => {
+    setPassword2(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    try {
+      if (password !== password2) {
+        setError("Passwords do not match");
+      } else {
+        await axios.post(`${url}/users`, {
+          username: username,
+          password: password,
+          first_name: firstName,
+          last_name: "",
+          wishlist: [],
+          cart: [],
+        });
+
+        localStorage.setItem("loggedIn", true);
+        localStorage.setItem("activeUser", username);
+        navigate(`/dashboard/${username}`);
+      }
+    } catch (err) {
+      setError(err.response.data.error);
+    }
+  };
+
   return (
-    <form className="signup-form">
+    <form className="signup-form" onSubmit={handleSubmit}>
       <label htmlFor="firstName" className="custom-field">
         <input
           type="text"
@@ -36,15 +65,6 @@ const SignUpForm = () => {
           onChange={handleFirstNameChange}
         />
         <span className="placeholder">First Name</span>
-      </label>
-      <label htmlFor="lastName" className="custom-field">
-        <input
-          type="text"
-          value={lastName}
-          required
-          onChange={handleLastNameChange}
-        />
-        <span className="placeholder">Last Name</span>
       </label>
       <label htmlFor="username" className="custom-field">
         <input
@@ -63,6 +83,15 @@ const SignUpForm = () => {
           onChange={handlePasswordChange}
         />
         <span className="placeholder">Password</span>
+      </label>
+      <label htmlFor="password2" className="custom-field">
+        <input
+          type="text"
+          value={password2}
+          required
+          onChange={handlePassword2Change}
+        />
+        <span className="placeholder">Re-enter Password</span>
       </label>
       <SubmitButton title="Create Account" />
       <p>
