@@ -1,0 +1,17 @@
+.nav-button {
+  font-size: 1rem;
+  border: none;
+  background: rgb(100, 70, 255, 0.85);
+  border-radius: 3px;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  width: 175px;
+  transition: all 0.2s ease;
+  color: white
+}
+
+.nav-button:hover {
+  cursor: pointer;
+  background: rgb(100, 70, 255, 1);
+  width: 200px;
+}
