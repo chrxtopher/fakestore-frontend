@@ -1,14 +1,11 @@
 import React from "react";
-import NavButton from "../components/NavButton";
 import SignUpForm from "../components/SignUpForm";
+import "../styles/signUpPage.css";
 
 const SignUp = () => {
   return (
-    <div className="sign-up-page">
-      <div className="signup">
-        <h2>Sign Up</h2>
-        <SignUpForm />
-      </div>
+    <div className="signup-page">
+      <SignUpForm />
     </div>
   );
 };
