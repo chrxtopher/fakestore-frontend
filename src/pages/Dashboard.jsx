@@ -19,7 +19,7 @@ const Dashboard = () => {
   return (
     <div className="dashboard">
       <header>
-        <Header />
+        <Header user={user} />
       </header>
     </div>
   );

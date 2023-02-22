@@ -42,3 +42,20 @@ header {
   align-items: center;
   justify-content: center;
 }
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 1rem;
+  width: 200px;
+}
+
+.user-info h5, .user-info p {
+  margin: 0;
+}
+
+.user-info p {
+  font-size: 0.8rem;
+}
