@@ -1,0 +1,26 @@
+.menu-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1rem;
+  border: none;
+  background: rgb(255, 115, 55, 0.85);
+  border-radius: 3px;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  width: 175px;
+  transition: all 0.2s ease;
+  color: white;
+  margin-bottom: 1.25rem;
+}
+
+.menu-button:hover {
+  cursor: pointer;
+  background: rgb(255, 115, 55, 1);
+  width: 200px;
+}
+
+.left-icon svg, .right-icon svg {
+  width: 14px;
+  height: 14px;
+}
