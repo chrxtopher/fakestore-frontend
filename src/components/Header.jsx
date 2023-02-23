@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import NavItem from "./NavItem";
 import { ReactComponent as ProfileLogo } from "../svgs/profile-icon.svg";
 import "../styles/header.css";
