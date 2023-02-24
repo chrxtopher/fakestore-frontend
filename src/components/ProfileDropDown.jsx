@@ -2,7 +2,6 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { ReactComponent as CartIcon } from "../svgs/cart-icon.svg";
 import { ReactComponent as StarIcon } from "../svgs/star-icon.svg";
-import { ReactComponent as CaretIconRight } from "../svgs/right-caret.svg";
 import MenuButton from "./MenuButton";
 import NavButton from "../components/NavButton";
 import LogOutButton from "../components/LogOutButton";
@@ -19,13 +18,13 @@ const ProfileDropDown = ({ cart, wishlist }) => {
     <div className="profile-dropdown">
       <MenuButton
         title="Cart"
-        leftIcon={<CartIcon />}
-        rightIcon={<CaretIconRight />}
+        leftIcon={`[ ${cart.length} ]`}
+        rightIcon={<CartIcon />}
       />
       <MenuButton
         title="Wish List"
-        leftIcon={<StarIcon />}
-        rightIcon={<CaretIconRight />}
+        leftIcon={`[ ${wishlist.length} ]`}
+        rightIcon={<StarIcon />}
       />
       <NavButton title="Edit Profile" />
       <LogOutButton clickHandler={logOutClick} />
