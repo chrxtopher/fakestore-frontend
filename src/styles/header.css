@@ -29,12 +29,13 @@ header {
 }
 
 .icon-button:hover {
-  background: rgb(100, 70, 255, 0.4);
+  background: rgb(100, 70, 255, 0.35);
+  padding: 4px;
 }
 
 .icon-button svg {
-  width: 45px;
-  height: 45px;
+  width: 50px;
+  height: 50px;
 }
 
 .nav-item {
@@ -52,10 +53,10 @@ header {
   width: 200px;
 }
 
-.user-info h5, .user-info p {
+.user-info h4, .user-info p {
   margin: 0;
 }
 
 .user-info p {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
