@@ -6,11 +6,10 @@
   border: none;
   background: rgb(255, 115, 55, 0.85);
   border-radius: 3px;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding: 0.75rem;
   width: 175px;
   transition: all 0.2s ease;
-  color: white;
+  color: black;
   margin-bottom: 1.25rem;
 }
 
