@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/modal.css";
 import MenuButton from "./MenuButton";
 import { motion as m } from "framer-motion";
+import { getCartProducts } from "../util/api";
 
 const CartModal = ({ closeHandler, cart }) => {
+  const [cartItems, setCartItems] = useState(null);
+
+  useEffect(() => {
+    const getCart = async (idList) => {
+      const data = await getCartProducts(idList);
+      setCartItems(data);
+    };
+    getCart(cart);
+  }, [cart]);
+
   return (
     <m.div
       initial={{ opacity: 0 }}
@@ -14,11 +25,14 @@ const CartModal = ({ closeHandler, cart }) => {
       <div className="cart">
         <MenuButton title="Close" clickHandler={closeHandler} />
         <div className="cart-items">
-          <ul>
-            {cart.map((item) => {
-              return <li>{item}</li>;
-            })}
-          </ul>
+          {cartItems && cartItems.length > 0 && (
+            <ul>
+              {cartItems.map((item) => {
+                return <li>{item.title}</li>;
+              })}
+            </ul>
+          )}
+          {!cartItems && <p>Loading...</p>}
         </div>
         <button type="button" className="checkout-button">
           Checkout
