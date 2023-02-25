@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles/modal.css";
 import MenuButton from "./MenuButton";
+import CartListItem from "./CartListItem";
 import { motion as m } from "framer-motion";
 import { getCartProducts } from "../util/api";
 
@@ -28,11 +29,15 @@ const CartModal = ({ closeHandler, cart }) => {
           {cartItems && cartItems.length > 0 && (
             <ul>
               {cartItems.map((item) => {
-                return <li>{item.title}</li>;
+                return (
+                  <li>
+                    <CartListItem product={item} />
+                  </li>
+                );
               })}
             </ul>
           )}
-          {!cartItems && <p>Loading...</p>}
+          {!cartItems && <p>Getting your cart ready...</p>}
         </div>
         <button type="button" className="checkout-button">
           Checkout
