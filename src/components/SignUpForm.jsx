@@ -43,7 +43,7 @@ const SignUpForm = () => {
           first_name: firstName,
           last_name: "",
           wishlist: [],
-          cart: [],
+          cart: JSON.stringify([]), // database converts JSON string to true JSON
         });
 
         localStorage.setItem("loggedIn", true);
