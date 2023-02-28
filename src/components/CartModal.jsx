@@ -9,8 +9,8 @@ const CartModal = ({ closeHandler, cart }) => {
   const [cartItems, setCartItems] = useState(null);
 
   useEffect(() => {
-    const getCart = async (idList) => {
-      const data = await getCartProducts(idList);
+    const getCart = async (productList) => {
+      const data = await getCartProducts(productList);
       setCartItems(data);
     };
     getCart(cart);
