@@ -14,7 +14,7 @@ export async function getOneProduct(productId) {
 export async function getCartProducts(productsIdList) {
   const productsList = [];
   for (let i = 0; i < productsIdList.length; i++) {
-    const product = await getOneProduct(productsIdList[i]);
+    const product = await getOneProduct(productsIdList[i].productId);
     productsList.push(product);
   }
 
