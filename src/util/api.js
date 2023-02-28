@@ -2,6 +2,15 @@ import axios from "axios";
 const BASE_API_URL =
   process.env.REACT_APP_BASE_API_URL || "https://fakestoreapi.com";
 
+export async function getAllProducts() {
+  try {
+    const products = await axios.get(`${BASE_API_URL}/products`);
+    return products.data;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 export async function getOneProduct(productId) {
   try {
     const res = await axios.get(`${BASE_API_URL}/products/${productId}`);
@@ -12,11 +21,14 @@ export async function getOneProduct(productId) {
 }
 
 export async function getCartProducts(productsIdList) {
-  const productsList = [];
-  for (let i = 0; i < productsIdList.length; i++) {
-    const product = await getOneProduct(productsIdList[i].productId);
-    productsList.push(product);
-  }
-
-  return productsList;
+  const allProducts = await getAllProducts();
+  const cartProductsList = [];
+  productsIdList.forEach((item) => {
+    const found = allProducts.find((product) => {
+      return product.id === item.productId;
+    });
+    found.quantity = item.quantity;
+    cartProductsList.push(found);
+  });
+  return cartProductsList;
 }
