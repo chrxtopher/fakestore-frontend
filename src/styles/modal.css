@@ -24,9 +24,15 @@
 }
 
 .cart-items {
-  width: 90%;
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
   height: 90%;
   max-height: 90%;
+  overflow-y: scroll;
 }
 
 .checkout-button {
