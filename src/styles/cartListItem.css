@@ -7,9 +7,9 @@
   height: 100px;
   background: rgb(200, 200, 200, 0.3);
   border-radius: 3px;
-  transition: all 0.15s ease;
+  transition: all 0.2s ease;
   margin-bottom: 0.75rem;
-  padding: 0.5rem;
+  padding: 0.8rem;
 }
 
 .cart-list-item:hover {
@@ -22,6 +22,13 @@
   width: 70%;
   height: 100%;
   min-width: 45%;
+}
+
+.product-info select {
+  padding: 0.2rem;
+  margin-left: 0.5rem;
+  outline: none;
+  border-radius: 3px;
 }
 
 .cart-product-img {
