@@ -16,6 +16,16 @@ const CartModal = ({ closeHandler, cart }) => {
     getCart(cart);
   }, [cart]);
 
+  const calcCartTotal = (cart) => {
+    let cartTotal = 0;
+    cart.forEach((item) => {
+      let itemTotal = item.price * item.quantity;
+      cartTotal += itemTotal;
+    });
+
+    return cartTotal;
+  };
+
   return (
     <m.div
       initial={{ opacity: 0 }}
@@ -39,6 +49,9 @@ const CartModal = ({ closeHandler, cart }) => {
           )}
           {!cartItems && <p>Getting your cart ready...</p>}
         </div>
+        {cartItems && cartItems.length > 0 && (
+          <h4>{`Cart Total: $${calcCartTotal(cartItems)}`}</h4>
+        )}
         <button type="button" className="checkout-button">
           Checkout
         </button>
