@@ -16,7 +16,7 @@ const CartListItem = ({ product }) => {
         <div className="quantity-selection">
           <form>
             <label htmlFor="quantity">
-              Quantity
+              Quantity:
               <select defaultValue={product.quantity}>
                 <option value={1}>1</option>
                 <option value={2}>2</option>
