@@ -30,12 +30,9 @@ const CartListItem = ({ product }) => {
                 <option value={10}>10</option>
               </select>
             </label>
+            <a href="#">Remove</a> | <a href="#">Add to Wishlist</a>
           </form>
         </div>
-      </div>
-      <div className="cart-product-buttons">
-        <button className="remove-button">Remove</button>
-        <button className="move-wishlist-button">+ Wishlist</button>
       </div>
     </div>
   );
