@@ -52,6 +52,15 @@
   border-radius: 3px;
 }
 
+.cart-totals {
+  text-align: start;
+  padding-top: 1rem;
+}
+
+.cart-totals p, .cart-totals h5 {
+  margin: 0;
+}
+
 a {
   font-size: 0.8rem;
   margin: 0rem 0.5rem;

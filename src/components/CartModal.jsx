@@ -6,6 +6,10 @@ import { motion as m } from "framer-motion";
 import { getCartProducts } from "../util/api";
 
 const CartModal = ({ closeHandler, cart }) => {
+  const USDollar = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
   const [cartItems, setCartItems] = useState(null);
 
   useEffect(() => {
@@ -16,14 +20,20 @@ const CartModal = ({ closeHandler, cart }) => {
     getCart(cart);
   }, [cart]);
 
-  const calcCartTotal = (cart) => {
-    let cartTotal = 0;
+  const calcCartTotals = (cart) => {
+    let productsTotal = 0;
+    let taxTotal = 0;
     cart.forEach((item) => {
       let itemTotal = item.price * item.quantity;
-      cartTotal += itemTotal;
+      productsTotal += itemTotal;
     });
+    taxTotal = productsTotal * 0.09;
 
-    return cartTotal;
+    return {
+      productsTotal: USDollar.format(productsTotal),
+      taxTotal: USDollar.format(taxTotal),
+      cartTotal: USDollar.format(productsTotal + taxTotal),
+    };
   };
 
   return (
@@ -50,7 +60,13 @@ const CartModal = ({ closeHandler, cart }) => {
           {!cartItems && <p>Getting your cart ready...</p>}
         </div>
         {cartItems && cartItems.length > 0 && (
-          <h4>{`Cart Total: $${calcCartTotal(cartItems)}`}</h4>
+          <div className="cart-totals">
+            <p>{`Products Total: ${
+              calcCartTotals(cartItems).productsTotal
+            }`}</p>
+            <p>{`Estimated Tax: ${calcCartTotals(cartItems).taxTotal}`}</p>
+            <h5>{`Cart Total: ${calcCartTotals(cartItems).cartTotal}`}</h5>
+          </div>
         )}
         <button type="button" className="checkout-button">
           Checkout
